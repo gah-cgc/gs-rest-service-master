@@ -1,0 +1,9 @@
+.apt_generate/
+.idea/
+.mvn/
+.settings/
+gradle/
+lib/
+target/
+_GAH_*
+src/*test.zipx
