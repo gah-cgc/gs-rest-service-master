@@ -8,7 +8,7 @@ import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @ConfigurationProperties
-@PropertySource("file:./application.properties")
+//@PropertySource("classpath:application.properties")
 @ImportResource({"classpath:*-config.xml"})
 public class AppConfig {
 
