@@ -6,4 +6,6 @@ public interface GreetingService {
 
 	Greeting deleteUser(String uid);
 
+    Greeting startupTimestamp();
+
 }

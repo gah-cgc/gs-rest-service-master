@@ -1,5 +1,7 @@
 package hello;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -13,6 +15,9 @@ import javax.annotation.Resource;
 public class GreetingServiceImpl implements GreetingService {
 	private static final String templateString = "Hello, %s(uid=%s)!";
 	private final AtomicLong counter = new AtomicLong();
+	private static final Date startupTimestamp = new Date();
+    private static final SimpleDateFormat startupTimestampFormat = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+    private static final String startTimestampString = startupTimestampFormat.format(startupTimestamp);
 
 	@Autowired
 	private AppConfig appConfig;
@@ -23,9 +28,15 @@ public class GreetingServiceImpl implements GreetingService {
 	}
 
 	@Override
-	public Greeting deleteUser(final String uid) {
-		return new Greeting(appConfig, counter.incrementAndGet(), String.format("Delete uid=%s", uid));
-	}
+    public Greeting deleteUser(final String uid) {
+        return new Greeting(appConfig, counter.incrementAndGet(), String.format("Delete uid=%s", uid));
+    }
+
+    @Override
+    public Greeting startupTimestamp() {
+        return new Greeting(appConfig, counter.incrementAndGet(), String.format("Startup Timestamp=%s",
+                startTimestampString));
+    }
 
     //GAH: this is to test Spring SpEL injection of Map<> data structure
     //@Autowired

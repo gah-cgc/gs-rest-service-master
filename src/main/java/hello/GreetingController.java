@@ -36,6 +36,13 @@ public class GreetingController {
 		return service.deleteUser(uid);
 	}
 
+    // e.g. HTTP GET - http://localhost:8080/helloApp/startupTimestamp
+    @RequestMapping(method = RequestMethod.GET, value = "/startupTimestamp", produces = {
+            MediaType.APPLICATION_JSON_VALUE })
+    public Greeting startupTimestamp() {
+        return service.startupTimestamp();
+    }
+
 	// e.g. HTTP POST - http://localhost:8080/helloApp/deleteUser/18 returns status=201(created)
 	/*
 	 * @RequestMapping(method=RequestMethod.POST, value="createUser/{uid}") public ResponseEntity<Object>
