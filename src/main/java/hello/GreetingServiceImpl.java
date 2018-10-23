@@ -16,8 +16,8 @@ public class GreetingServiceImpl implements GreetingService {
 	private static final String templateString = "Hello, %s(uid=%s)!";
 	private final AtomicLong counter = new AtomicLong();
 	private static final Date startupTimestamp = new Date();
-    private static final SimpleDateFormat startupTimestampFormat = new SimpleDateFormat("M-dd-yyyy hh:mm:ss GMT");
-    private static final String startTimestampString = startupTimestampFormat.format(startupTimestamp);
+    private static final SimpleDateFormat startupTimestampFormat = new SimpleDateFormat("M-dd-yyyy hh:mm:ss");
+    private static final String startTimestampString = startupTimestampFormat.format(startupTimestamp + " GMT");
 
 	@Autowired
 	private AppConfig appConfig;
